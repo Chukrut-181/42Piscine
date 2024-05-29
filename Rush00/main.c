@@ -48,14 +48,12 @@ int	main (int argc, char *argv[])
 	int	i;
 
 	if (argc != 3)
-	{
-		write (1, "Incorrect number of arguments.\n", 31);
-		return (0);
-	}
+		return (write (1, "Error: Arguments must be exactly 3.\n", 36));
 	i = 1;
-	while (*argv[i] != '\0')
+	while (i < 3)
 	{
-		ft_is_numeric (argv[i]);
+		if (!ft_is_numeric (argv[i]))
+			return (1);
 		i++;
 	}
 	rush (ft_atoi(argv[1]), ft_atoi(argv[2]));
